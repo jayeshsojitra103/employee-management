@@ -7,44 +7,60 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Employee Management Application
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+This is a simple Employee Management application built with React, TypeScript, MirageJS (for mocking the backend), Redux Toolkit (for state management), and Material-ui for styling. The app supports CRUD (Create, Read, Update, Delete) operations for managing employee profiles.
+
+
+### Features
+- List Employees: Displays a list of employees with their profile details.
+- Add Employee: Allows users to add a new employee profile.
+- Delete Employee: Users can delete an employee from the list.
+- **Edit Employee: (Pending) Ability to update an employee's profile. (API and redux done, but from  UI side, it's pending)**
+
+
+### Technologies Used
+- React (with TypeScript)
+- MirageJS (for mocking backend API)
+- Redux Toolkit (for state management)
+- Material-ui (for styling)
+
+
+```
+git clone https://github.com/your-username/employee-management.git
+cd employee-management
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm install
+```
+
+```
+npm start
+```
+
+
+```
+src/
+├── components/
+│   ├── AddEmployee.tsx       # Component for adding a new employee
+│   ├── EmployeeList.tsx      # Component to list all employees
+├── redux/
+│   ├── employeeSlice.ts      # Redux slice for employee data management
+│   └── store.ts              # Redux store configuration
+├── mirage/
+│   └── server.ts             # MirageJS server setup for mocking API
+├── utils/
+│   └── index.ts              # for utils function
+├── App.tsx                   # Main application component
+└── main.tsx                  # Entry point for the React app
+
+```
+
+
+### Notes:
+
+- Due to time limit the EditEmployee component is marked as pending, 
